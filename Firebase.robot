@@ -59,7 +59,17 @@ Login Firebase
     Wait Until Element Is Not Visible    ${locator_password}
 
     Wait Until Element Is Visible    css=fb-navbar    1m
+    ${isnotPass} 	Run Keyword And Return Status     Wait Until Element Is Visible   //*[@id="view_container"]/div/div/div[2]/div/div/div/form/span/section/div/div/div/ul/li[3]/div/div[2]
+    Return From Keyword If    ${isnotPass} == ${true}    LoginMoblie
+
+
     Set Global Variable    ${loginFirebase}    ${true}
+
+LoginMoblie
+    Click Element    //*[@id="view_container"]/div/div/div[2]/div/div/div/form/span/section/div/div/div/ul/li[3]/div/div[2]
+    Wait Until Element Is Variable    //*[@id="phoneNumberId"]
+    Input Text    //*[@id="phoneNumberId"]    0949861995
+    Press Keys    //*[@id="phoneNumberId"]    RETURN    
 
 Get Active User
     Login Firebase
