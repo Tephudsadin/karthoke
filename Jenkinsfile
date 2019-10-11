@@ -16,7 +16,7 @@ pipeline {
                 sh 'pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib robotframework robotframework-seleniumlibrary restinstance'
                 sh 'apk update \
                     &&  apk add ca-certificates wget \
-                    &&  apk --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing firefox \
+                    &&  apk add --no-cache firefox-esr \
                     &&  update-ca-certificates \
                     &&  wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz \
                     &&  tar -xvzf geckodriver* \
