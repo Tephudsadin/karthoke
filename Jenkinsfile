@@ -1,27 +1,27 @@
 pipeline {
     agent {
-        docker { image 'python:3.7.4-alpine3.9'}
+        docker { image 'python:3.7.4-windowsservercore-1809'}
     }
 
     stages {
 
         stage('clone git repository') {
             steps {
-                sh 'ls -l'
+                bat 'dir'
             }
         }
 
         stage('Install') {
             steps {
-                sh 'pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib robotframework robotframework-seleniumlibrary restinstance'
+                bat 'pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib robotframework robotframework-seleniumlibrary restinstance'
             }
         }
 
         stage('Run') {
             steps {
-                sh 'ls -l'
-                sh 'robot -d Result -t Report22 Report.robot'
-                sh 'ls -l'
+                bat 'dir'
+                bat 'robot -d Result -t Report22 Report.robot'
+                bat 'dir'
             }
         }
 
