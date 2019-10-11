@@ -17,6 +17,13 @@ pipeline {
             }
         }
 
+        stage('Run') {
+            steps {
+                sh 'robot -d Result -t Report22 report.robot'
+                sh 'ls -l'
+            }
+        }
+
     }
 
     // post {
