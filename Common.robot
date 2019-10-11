@@ -16,7 +16,7 @@ Open Chrome
     # Open Browser    ${url}    browser=chrome    desired_capabilities=${chromeOptions}
     Open Browser    ${url}    browser=headless firefox
     Set Window Size    ${width}    ${height}
-    Register Keyword To Run On Failure    None
+    # Register Keyword To Run On Failure    None
     Set Global Variable    ${openChrome}    ${true}
 
 Close Chrome
