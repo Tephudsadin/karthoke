@@ -1,27 +1,34 @@
 pipeline {
     agent {
-        docker { image 'python:3.7-windowsservercore'}
+        docker { image 'python:3.7.4-alpine3.9'}
     }
 
     stages {
 
         stage('clone git repository') {
             steps {
-                bat 'dir'
+                sh 'ls -l'
             }
         }
 
         stage('Install') {
             steps {
-                bat 'pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib robotframework robotframework-seleniumlibrary restinstance'
+                sh 'pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib robotframework robotframework-seleniumlibrary restinstance'
+                sh 'apk update \                                                                                                                                                                                                                        
+                    &&  apk add ca-certificates wget \                                                                                                                                                                                                      
+                    &&  update-ca-certificates \
+                    &&  wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz \
+                    &&  tar -xvzf geckodriver* \
+                    &&  chmod +x geckodriver \
+                    &&  sudo mv geckodriver /usr/local/bin/'
             }
         }
 
         stage('Run') {
             steps {
-                bat 'dir'
-                bat 'robot -d Result -t Report22 Report.robot'
-                bat 'dir'
+                sh 'ls -l'
+                sh 'robot -d Result -t Report22 Report.robot'
+                sh 'ls -l'
             }
         }
 
