@@ -5,10 +5,7 @@ pipeline {
 
         stage('clone git repository') {
             steps {
-                // sh 'printenv'
-                script {
-                    sh 'ls -l'
-                }
+                sh 'ls -l'
             }
         }
 
