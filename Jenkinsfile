@@ -11,12 +11,12 @@ pipeline {
 
     }
 
-    post {
-        always {
-            script {
-                // sh "docker rmi ${DOCKER_REGISTRY}/${DOCKER_IMG_NAME}:${DOCKER_TAG} || echo 'ignore'"
-            }
-            deleteDir()
-        }
-    }
+    // post {
+    //     always {
+    //         script {
+    //             sh "docker rmi ${DOCKER_REGISTRY}/${DOCKER_IMG_NAME}:${DOCKER_TAG} || echo 'ignore'"
+    //         }
+    //         deleteDir()
+    //     }
+    // }
 }
