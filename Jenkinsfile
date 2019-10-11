@@ -1,6 +1,11 @@
 pipeline {
     agent {
-        docker { image 'python:3.7.4-alpine3.9'}
+        docker {
+            image 'python:3.7.4-alpine3.9'
+        }
+    }
+    environment {
+        TZ = 'Asia/Bangkok' 
     }
 
     stages {
@@ -15,7 +20,9 @@ pipeline {
             steps {
                 sh 'pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib robotframework robotframework-seleniumlibrary restinstance'
                 sh 'apk update \
-                    &&  apk add ca-certificates wget \
+                    &&  apk add ca-certificates wget tzdata\
+                    &&  ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+                    &&  echo $TZ > /etc/timezone \
                     &&  apk add --no-cache firefox-esr \
                     &&  update-ca-certificates \
                     &&  wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz \
@@ -38,11 +45,6 @@ pipeline {
 
     post {
         always {
-            script {
-                sh "cat /var/jenkins_home/workspace/robot_daily_report/Result/output.xml"
-                sh "cat /var/jenkins_home/workspace/robot_daily_report/Result/log.html"
-                sh "cat /var/jenkins_home/workspace/robot_daily_report/Result/report.html"
-            }
             deleteDir()
         }
     }
