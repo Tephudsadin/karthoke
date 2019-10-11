@@ -37,6 +37,11 @@ pipeline {
 
     post {
         always {
+            script {
+                sh "cat /var/jenkins_home/workspace/robot_daily_report/Result/output.xml"
+                sh "cat /var/jenkins_home/workspace/robot_daily_report/Result/log.html"
+                sh "cat /var/jenkins_home/workspace/robot_daily_report/Result/report.html"
+            }
             deleteDir()
         }
     }
