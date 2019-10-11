@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'python:3.7.4-windowsservercore-1809'}
+        docker { image 'python:3.7-windowsservercore'}
     }
 
     stages {
