@@ -14,7 +14,9 @@ Open Chrome
     # Run Keyword If    ${${headless}}    Append To List    ${chromeOptions['goog:chromeOptions']['args']}    headless
     # Run Keyword If    '${proxy}' != ''    Append To List    ${chromeOptions['goog:chromeOptions']['args']}    proxy-server=${proxy}
     # Open Browser    ${url}    browser=chrome    desired_capabilities=${chromeOptions}
-    Open Browser    ${url}    browser=headless firefox
+
+    #Open Browser    ${url}    browser=headless firefox
+    Open Browser    ${url}    browser=firefox
     Set Window Size    ${width}    ${height}
     Register Keyword To Run On Failure    None
     Set Global Variable    ${openChrome}    ${true}

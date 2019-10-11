@@ -6,7 +6,7 @@ Library    SeleniumLibrary    15s
 *** Variables ***
 ${FIREBASE_URL}    https://console.firebase.google.com/project/onesiam-mobile
 ${FIREBASE_USR}    Karthoke.Tester@gmail.com
-${FIREBASE_PWD}    TEPHUDSADIN99
+${FIREBASE_PWD}    TEPHUDSADIN999
 ${FIREBASE_TEL}    0949861995
 
 *** Keywords ***
