@@ -20,7 +20,7 @@ pipeline {
         stage('Run') {
             steps {
                 sh 'ls -l'
-                // sh 'robot -d Result -t Report22 report.robot'
+                sh 'robot -d Result -t Report22 Report.robot'
                 sh 'ls -l'
             }
         }
