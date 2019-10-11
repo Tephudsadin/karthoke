@@ -84,3 +84,9 @@ Get System Monitor D01_2 Screen
     Set Window Size    ${GRAFANA_WIDTH}    ${height}
     ${path}    Capture Page Screenshot    ${GRAFANA_SSPATH}/D01_2.png
     [Return]    ${path}
+Cap Firebase
+    Open Chrome   https://docs.google.com/spreadsheets/d/12s2lIKxptnOdkBUyfApN856IUPNej-CO0R3a3JrKlaw/edit#gid=1230677867
+    Set Window Size    ${GRAFANA_WIDTH}    ${GRAFANA_HEIGHT}
+    ${path}    Capture Page Screenshot    ${GRAFANA_SSPATH}/Firebase.png
+    [Return]    ${path}
+    

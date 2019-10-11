@@ -32,8 +32,15 @@ Report22
     Set Report    L    ${events[5]}
     Set Report    M    ${events[6]}
     
+    Get ADMD Screen
+    Get Mobile-BE Screen
+    Get System Monitor D01_1 Screen
+    Get System Monitor D01_2 Screen
+
+    Cap Firebase
 ReportGrafana
     Get ADMD Screen
     Get Mobile-BE Screen
     Get System Monitor D01_1 Screen
     Get System Monitor D01_2 Screen
+#robot -d Result -t Report18 report.robot

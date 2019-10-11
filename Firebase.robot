@@ -100,3 +100,4 @@ Get Events
     END
     Set Global Variable    ${events}
     [Return]    ${events}
+
