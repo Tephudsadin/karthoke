@@ -28,7 +28,7 @@ pipeline {
         stage('Run') {
             steps {
                 sh 'ls -l'
-                sh 'robot -d Result -t Report18 Report.robot' || echo test
+                sh 'robot -d Result -t Report18 Report.robot || echo test'
                 sh 'ls -l'
                 archiveArtifacts artifacts: '**/Result/**/*', excludes: '**/Result/**/*.xml'
             }
